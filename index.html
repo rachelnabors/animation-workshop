@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=1024, user-scalable=no">
+
+    <title>Animations using CSS, JS, and Web Audio Workshop with Rachel Nabors</title>
+    
+    <!-- Required stylesheet -->
+    <link rel="stylesheet" href="core/deck.core.css">
+    
+    <!-- Extension CSS files go here. Remove or add as needed. -->
+    <link rel="stylesheet" href="extensions/goto/deck.goto.css">
+    <link rel="stylesheet" href="extensions/menu/deck.menu.css">
+    <link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+    <link rel="stylesheet" href="extensions/status/deck.status.css">
+    <link rel="stylesheet" href="extensions/hash/deck.hash.css">
+    <link rel="stylesheet" href="extensions/scale/deck.scale.css">
+    <link rel="stylesheet" href="extensions/pointer/deck.pointer.css">
+    <link rel="stylesheet" href="extensions/syntaxhighlighter/deck.syntaxhighlighter.css">
+
+    <!-- Style theme. More available in /themes/style/ or create your own. -->
+    <link rel="stylesheet" href="themes/style/profesh.css">
+    
+    <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+    <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+    
+    <!-- Required Modernizr file -->
+    <script src="modernizr.custom.js"></script>
+    <script type="text/javascript" src="http://use.typekit.com/ewk1gzp.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+<body class="deck-container">
+
+<section class="slide title-slide">
+    <div class="talk-title">
+        <hgroup>
+            <h1>Animated Music Videos</h1>
+            <h2>with CSS3 Animations and HTML5 Audio</h2>
+        </hgroup>
+        <p>With cartoonist turned web developer Rachel Nabors! <br /><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/crowchick">@CrowChick</a></p>
+        <p>Follow along at <a href="http://www.rachelnabors.com/cltfed2013">RachelNabors.com/cltfed2013</a></p>
+        <img src="img/bg_no-flash.png" alt="No Flash Allowed">
+    </div>
+    <figure class="self-portrait">
+        <img src="img/p_rachelnabors.png" alt="A manga-inspired self-portrait of Rachel, clutching a laptop and looking adorable.">
+        <figcaption class="ir">with Rachel the Great (aka Rachel Nabors)</figcaption>
+    </figure>
+</section>
+
+<section class="slide">
+    <h2>Mission Statement</h2>
+    <div class="slide">
+        <h3>What we are covering</h3>
+        <ul>
+            <li>animating stuff with CSS3</li>
+            <li>playing music with JS and HTML5</li>
+            <li>handling play state with JS</li>
+        </ul>
+    </div>
+    <div class="slide">
+        <h3>What we’re NOT covering</h3>
+        <ul>
+            <li>Canvas</li>
+            <li>SVG</li>
+            <li>using JavaScript to move or otherwise animate elements</li>
+            <li>vendor prefixes</li>
+            <li>performance</li>
+            <li>mobile</li>
+            <li>retina displays</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Some assumptions</h2>
+    <ul>
+        <li>We're using Chrome, but these animations will work in all recent browsers except IE9.</li>
+        <li>Using <a href="http://leaverou.github.com/prefixfree/">-prefix-free</a> instead of adding vendor prefixes.</li>
+        <li>Using jQuery because everyone knows jQuery.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h1 class="vcenter">Making an Animated Music Video</h1>
+</section>
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+    <label for="goto-slide">Go to slide:</label>
+    <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+    <datalist id="goto-datalist"></datalist>
+    <input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+<script src="extensions/pointer/deck.pointer.js"></script>
+<script src="extensions/syntaxhighlighter/deck.syntaxhighlighter.js"></script>
+<script src="extensions/iframes/deck.iframes.js"></script>
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+    $(function() {
+        $.deck('.slide');
+        $.deck('iframes');
+    });
+</script>
+</body>
+</html>
