@@ -92,6 +92,18 @@ $grey: #858585;
 			transform:none;
 			&.vcenter { margin: 0;}
 		}
+		.vcenter {
+			h1, h2 { 
+				margin: 0;
+				padding: 0;
+			}
+			h2 { 
+				border: 0;
+				border-top: 3px solid #888;
+				font-size: 3em;
+				padding-top: .25em;
+			}
+		}
 
 		h2 {
 			font-family: $ostmed;
@@ -103,14 +115,23 @@ $grey: #858585;
 			font-family: $ostblk;
 			color:#888;
 		}
-
+		h4 {
+			margin-top: 2em;
+		}
 		pre {
 			border-color:$grey;
+			em { color: $callout;}
 		}
 
 		code {
 			color:#888;
 		}
+
+		figure {
+			margin-bottom: 1em;
+			text-align: center;
+			}
+		figcaption { font-style: italic;}
 
 		blockquote {
 			font-size:2em;

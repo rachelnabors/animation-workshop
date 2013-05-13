@@ -67,6 +67,14 @@
       transform: none; }
       .deck-container .slide h1.vcenter {
         margin: 0; }
+    .deck-container .slide .vcenter h1, .deck-container .slide .vcenter h2 {
+      margin: 0;
+      padding: 0; }
+    .deck-container .slide .vcenter h2 {
+      border: 0;
+      border-top: 3px solid #888888;
+      font-size: 3em;
+      padding-top: .25em; }
     .deck-container .slide h2 {
       font-family: "OstrichSansMedium", sans-serif;
       border-bottom-color: #858585;
@@ -74,10 +82,19 @@
     .deck-container .slide h3 {
       font-family: "OstrichSansBlack", sans-serif;
       color: #888; }
+    .deck-container .slide h4 {
+      margin-top: 2em; }
     .deck-container .slide pre {
       border-color: #858585; }
+      .deck-container .slide pre em {
+        color: #e64988; }
     .deck-container .slide code {
       color: #888; }
+    .deck-container .slide figure {
+      margin-bottom: 1em;
+      text-align: center; }
+    .deck-container .slide figcaption {
+      font-style: italic; }
     .deck-container .slide blockquote {
       font-size: 2em;
       font-style: italic;
