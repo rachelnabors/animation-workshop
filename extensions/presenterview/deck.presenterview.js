@@ -53,7 +53,6 @@ var presenterView = (function() {
         var lastElemsIndex = hrefArr.length - 1;
 
         delete hrefArr[lastElemsIndex];
-        delete hrefArr[lastElemsIndex - 1];
 
         var baseUrl = hrefArr.join('/');
         var urlToPresenterView = baseUrl + 'extensions/presenterview/deck.presenterview.html';
