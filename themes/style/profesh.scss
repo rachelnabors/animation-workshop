@@ -149,6 +149,9 @@ $grey: #858585;
 				font-style:normal;
 				font-weight:bold;
 				color:#888;
+				display: block;
+				text-align: right;
+				&:before { content:"\2014";}	
 			}
 		}
 

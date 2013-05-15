@@ -107,7 +107,11 @@
         font-size: .5em;
         font-style: normal;
         font-weight: bold;
-        color: #888; }
+        color: #888;
+        display: block;
+        text-align: right; }
+        .deck-container .slide blockquote cite:before {
+          content: "\2014"; }
     .deck-container .slide ::-moz-selection {
       background: #a52469;
       color: #fff; }
