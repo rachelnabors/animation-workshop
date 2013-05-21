@@ -37,14 +37,14 @@
 <section class="slide title-slide">
   <div class="talk-title">
     <hgroup>
-      <h1>Traditional Animation</h1>
+      <h1>Animation School</h1>
       <h2>A crash course in CSS3 and Web Audio</h2>
     </hgroup>
-    <p><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/crowchick">@CrowChick</a></p>
+    <p><a href="http://rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/crowchick">@CrowChick</a></p>
     <h2 style="margin:1em 0 .25em;">Prepare for class!</h2>
     <ol>
       <li>Open Google Chrome</li>
-      <li>Go to <a href="http://www.rachelnabors.com/animation-workshop">RachelNabors.com/animation-workshop</a></li>
+      <li>Go to <a href="http://rachelnabors.com/animation-workshop">RachelNabors.com/animation-workshop</a></li>
       <li>Hang onto yer butts</li>
     </ol>
   </div>
@@ -84,7 +84,7 @@
     <li>Canvas</li>
     <li>SVG</li>
     <li>using JavaScript to move or otherwise animate elements</li>
-    <li>vendor prefixes</li>
+    <li>CSS vendor prefixes</li>
     <li>mobile</li>
     <li>retina displays</li>
   </ul>
@@ -115,7 +115,7 @@
 <section class="slide">
   <h2>Code in the wild</h2>
   <ul>
-    <li class="slide">Not ready for 100% full power ahead in all browsers&mdash;<strong>look at your numbers</strong></li>
+    <li class="slide">Not all of these techniques will work in all browsers&mdash;<em>yet.</em> <strong>Look at your numbers.</strong></li>
     <li class="slide">-prefix-free is for demos only. Use <a href="http://sass-lang.com/">Sass</a>/<a href="http://compass-style.org/">Compass</a> to handle vendor prefixes in production.</li>
     <li class="slide">I recommend Eric Myer's Compass plugin <a href="https://github.com/ericam/compass-animate">compass-animate</a></li>
   </ul>
@@ -132,7 +132,7 @@
   <h2>CSS Transitions</h2>
   <h3>Anatomy of a Transition</h3>
   <ul>
-    <li class="slide"><code>transition-property:</code> the property you want to transition&mdash;<em>Debugging tip!</em> Only some properties are transitionable. <a href="http://www.w3.org/TR/css3-transitions/#animatable-properties-"> References this handy list of transitionable CSS properties.</a></li>
+    <li class="slide"><code>transition-property:</code> the property you want to transition&mdash;<em>Debugging tip!</em> Only some properties are transitionable. <a href="http://www.w3.org/TR/css3-transitions/#animatable-properties-">Reference this handy list of transitionable CSS properties.</a></li>
     <li class="slide"><code>transition-duration:</code> how many long the transition lasts in seconds of milliseconds: <code>4s</code> or <code>4000ms</code></li>
     <li class="slide"><code>transition-timing-function:</code> &ldquo;cushioning&rdquo; for the transition, defaults to <code>ease</code>.</li>
     <li class="slide"><code>transition-delay:</code> the number of milli/seconds to delay the transition instead of playing right away</li>
@@ -169,7 +169,7 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <h2>CSS Transitions</h2>
-  <h3>Rolling a Ball</h3>
+  <h3>Exercise: Rolling a Ball</h3>
   <p>Now try using what you just learned. This will be fun!</p>
   <p><strong>Keep this animation project open a bit</strong>&mdash;we're going to experiment!</p>
   <!--NOTE No experimenting with easing just yet, next slide-->
@@ -181,7 +181,7 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <div class="vcenter">
-    <h1>Focus on...</h1>
+    <h1>Focus on&hellip;</h1>
     <h2>Timing Functions</h2>
   </div>
 </section>
@@ -208,7 +208,7 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <div class="vcenter">
-    <h1>Focus on...</h1>
+    <h1>Focus on&hellip;</h1>
     <h2>Play State</h2>
   </div>
 </section>
@@ -216,25 +216,35 @@ transition-duration: 1s, 3s;</pre>
 <section class="slide">
   <h2>Play State</h2>
   <h3>The Playing States</h3>
-  <p>This is one of the few reasons to use JavaScript in your animation.</p>
+  <p>This is one of the few reasons to use JavaScript with your animation.</p>
+  <p>These are the mandatory play states to handle asset loading:</p>
   <ol>
     <li><strong>Loading</strong> JS, CSS, music and images are still being downloaded.</li>
     <li><strong>Loaded</strong> They are all downloaded. We are go for play.</li>
-    <li><strong>Playing</strong> User has indicated to begin the animation, or automatically start playing.</li>
   </ol>
 
-  <p class="slide">Optional States: <strong>Error</strong> and <strong>Finished</strong></p>
+  <div class="slide">
+    <h3>Optional Play States</h3>
+    <p>Because complex interactions have complex needs.</p>
+    <ul>
+      <li class="slide"><strong>Playing</strong> User has indicated to begin the animation.</li>
+      <li class="slide"><strong>Paused</strong> If you allow playback control or need to pause while the tab is out of focus.</li>
+      <li class="slide"><strong>Error</strong> Good if you have a backup plan!</li>
+      <li class="slide"><strong>Finished</strong> To kick off something after the animation.</li>
+    </ul>
+  </div>
+
 </section>
 
 <section class="slide">
   <h2>Play State</h2>
-  <h3>Sensing Visual Play Readiness</h3>
+  <h3>Exercise: Sensing Visual Play Readiness</h3>
   <p>Start all animations with a default parent class of <code>.loading</code>.</p>
   <div class="slide">
     <h3>Loaded</h3>
-    <p>jQuery's <code>$(window).load()</code> fires when the browser has all the CSS, images and JS in place and has painted the window.</p>
+    <p>jQuery's <code>$(window).load()</code> fires when the browser has all the CSS, images, and JS in place and has painted the window.</p>
   </div>
-  <p class="slide">Still looking for a pure JS solution for this. (Reward of cookies.)</p>
+  <p class="slide"><strong>Help!</strong> Still looking for a pure JS solution for this. (Reward of cookies.)</p>
   <div class="slide">
     <p>Hook into this event to swap the <code>.loading</code> class for <code>.loaded</code> or <code>.playing</code> like so:</p>
 
@@ -245,7 +255,7 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <div class="vcenter">
-    <h1>Focus on...</h1>
+    <h1>Focus on&hellip;</h1>
     <h2>Staging</h2>
   </div>
 </section>
@@ -279,7 +289,7 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <h2>Staging</h2>
-  <h3>Do it with code: Multi-Scene Example</h3>
+  <h3>Multi-Scene Example</h3>
   <p>The multiple opening scenes are contained in <code>#scene1</code> and <code>#scene2</code>.</p>
   <pre class="codepen" data-height="300" data-type="result" data-href="lqswg" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/lqswg" target="_blank">Watch it in action!</a></pre>
   <script async src="http://codepen.io/assets/embed/ei.js"></script>
@@ -287,7 +297,7 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <h2>CSS Transitions</h2>
-  <h3>Showing and Hiding</h3>
+  <h3>Exercise: Showing and Hiding</h3>
   <p>To quickly show or hide a scene, transition <code>opacity</code> quickly from 1 to 0.</p>
   <p>Start Coding! <a href="http://codepen.io/rachelnabors/pen/ohkCp" target="_blank">codepen.io/rachelnabors/pen/ohkCp</a></p>
 </section>
@@ -303,7 +313,7 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <h2>CSS Transitions</h2>
-  <h3>Iris Wipe</h3>
+  <h3>Exercise: Iris Wipe</h3>
   <p>This one was hard for me to figure out...</p>
   <p class="slide">CSS masks can't be animated, nor radial gradients. BAH.</p>
   <p class="slide">I ended up using a <a href="http://stash.rachelnabors.com/oz/opening/cut-hole.png">big background image</a> that I shrank to fit using <code>background-scale</code></p>
@@ -313,12 +323,12 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <h2>CSS Transitions</h2>
-  <h3>Fading to Black</h3>
+  <h3>Exercise: Fading to Black</h3>
   <p>Fading to black is a lot like hiding with opacity, we just slow down the <code>transition-duration</code> and make sure there's a black background.</p>
   <pre class="codepen" data-height="300" data-type="result" data-href="995b1333cb9706aabe0bc5f64201d78a" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/aesxg">Check out this Pen!</a></pre>
   <p>Start Coding! <a href="http://codepen.io/rachelnabors/pen/aesxg" target="_blank">codepen.io/rachelnabors/pen/aesxg</a></p>
 
-  <p class="slide">Hey, wouldn't it be cool to fade into a new scene on a layer underneath the old one?</p>
+  <p class="slide"><strong>Try it at home!</strong> Wouldn't it be cool to fade into a new scene on a layer underneath the old one? That's called a &ldquo;cross-fade&rdquo;!</p>
 </section>
 
 <section class="slide">
@@ -372,7 +382,7 @@ transition-duration: 1s, 3s;</pre>
 </pre>
   <h3>In Long Form</h3>
   <ul>
-    <li class="slide"><code>animation-name:</code> The name of the keyframe block you want to use.</a></li>
+    <li class="slide"><code>animation-name:</code> The name of the keyframe block you want to use.</li>
     <li class="slide"><code>animation-duration:</code> how long the animations takes to go from 0% to 100%</li>
     <li class="slide"><code>animation-timing-function:</code> In addition to the previously covered timing functions, this can also take <code>steps()...</code></li>
     <li class="slide"><code>animation-delay:</code> the number of seconds to delay the animation instead of playing right away</li>
@@ -452,7 +462,7 @@ transition-duration: 1s, 3s;</pre>
   <p>You can write it out in long-hand, too, just like with transitions, but I think the above looks tidier.</p>
 
   <div class="slide">
-    <h3>Crib Sheets</h3>
+    <h3>Resources</h3>
     <p>Best CSS animation reference: <a href="http://css-tricks.com/snippets/css/keyframe-animation-syntax/">css-tricks.com/snippets/css/keyframe-animation-syntax</a></p>
   </div>
 </section>
@@ -467,7 +477,7 @@ transition-duration: 1s, 3s;</pre>
   <div class="slide">
     This is how it works, plus gotchas.
     <pre class="codepen" data-height="300" data-type="result" data-href="zeFqy" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/zeFqy">Check out this Pen!</a></pre>
-    <p>Feel free to fiddle with it: <a href="http://codepen.io/rachelnabors/pen/zeFqy"  target="_blank">codepen.io/rachelnabors/pen/zeFqy</a></p>
+    <p>Go fiddle with it: <a href="http://codepen.io/rachelnabors/pen/zeFqy"  target="_blank">codepen.io/rachelnabors/pen/zeFqy</a></p>
   </div>
 </section>
 
@@ -486,7 +496,7 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <h2>CSS Animations</h2>
-  <h3>Making a Walk-Cycle</h3>
+  <h3>Exercise: Making a Walk-Cycle</h3>
 
   <p>Starring my old <a href="http://www.rachelthegreat.com/comics_characters/tuna/" target="_blank">comic character Tuna</a>!</p>
 
@@ -517,21 +527,36 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <h2>CSS Animations</h2>
-  <h3>Using Cut-outs</h3>
-  TODO
+  <h3>Using Cut-outs in the Browser</h3>
+  <p>We can use this technique to reduce the number of assets required to animate something on a page.</p>
+  <pre class="codepen" data-height="300" data-type="result" data-href="pefly" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/pefly">Check out this Pen!</a></pre>
  
 </section>
 
+<section class="slide">
+  <h2>CSS Animations</h2>
+  <h3>Making Cut-outs</h3>
+  <p>One more cool example:</p>
+  <pre class="codepen" data-height="300" data-type="result" data-href="BIhvs" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/BIhvs">Check out this Pen!</a></pre>
+
+  <div class="slide">
+    <p>Now it's your turn to have some fun!</p>
+
+    <p>Freestyle to your heart's content: <a href="http://codepen.io/rachelnabors/pen/ucBAz">codepen.io/rachelnabors/pen/ucBAz</a></p>
+  </div>
+</section>
 
 <section class="slide">
   <h2>CSS Animations</h2>
   <h3>Parallax Backgrounds</h3>
 
-  <p>Parallax is when multiple background layers are moved at different speeds to imitate how views change when moving. It is realisitc, awe-inspiring, and (used to be) expensive.</p>
-  <!-- NOTE Snow White + Bambi, Disney's use of Iwerk's multipane camera, sheets of glass -->
+  <p>Parallax is when multiple background layers are moved at different speeds to imitate how views change when moving.</p>
+
+  <p class="slide">Required the <a href="http://en.wikipedia.org/wiki/Multiplane_camera" target="_blank">multipane camera</a> invented by Ub Iwerks in 1933.</p>
+  <!-- NOTE It is realisitc, awe-inspiring, and (used to be) expensive. Snow White + Bambi, Disney's use of Iwerk's multipane camera, sheets of glass -->
   
   <p class="slide">Example 1: <a href="https://www.youtube.com/watch?feature=player_detailpage&amp;v=OpnLHazdNAo#t=98s" target="_blank">Miyazaki uses the technique to establish beautiful countrysides in <em>Princess Mononoke</em>.</a> Watch the mountains and clouds.</p>
-  <p class="slide">Example 2: <a href="https://www.youtube.com/watch?v=UibodUGoL4M" target="_blank">He uses it more subtly in <em>Howl's Moving Castle</em>.</a> Can you spot the parallax?</p>
+  <p class="slide">Example 2: <a href="https://www.youtube.com/watch?v=UibodUGoL4M" target="_blank">He uses it more subtly in <em>Howl's Moving Castle</em>.</a> Can you spot the parallax? Say &ldquo;parallax!&rdquo; every time you see it.</p>
   <p class="slide">Example 3: <a href="http://www.youtube.com/watch?v=2k79BYPNo2U&amp;desktop_uri=%2Fwatch%3Fv%3D2k79BYPNo2U" target="_blank">In games like <em>Sonic the Hedgehog, parallax is used to show speed and add depth</em>.</a></p>
   <p class="slide">Example 4: <a href="https://www.youtube.com/watch?feature=player_detailpage&amp;v=qIwtXkdWQ0o#t=81s" target="_blank">Used masterfully to great effect in <em>The Last Unicorn</em>.</a></p>
   <p class="slide">Example 5: <a href="https://www.youtube.com/watch?v=FQf-NkWz7Yo" target="_blank">Used subtly, it can add extra pop to dynamic designs.</a></p>
@@ -552,19 +577,16 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <h2>CSS Animations</h2>
-  <h3>Parallax Backgrounds with CSS Background-Position</h3>
+  <h3>Exercise: Parallax Backgrounds with CSS Background-Position</h3>
 
   <pre class="codepen" data-height="300" data-type="result" data-href="da57b81af5a65f4ba048a8242a39a7fd" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/oKbhB">Check out this Pen!</a></pre>
+  <!--NOTE: The different background image lengths let us use one animation to move all the background images at different rates in the same interval of time.-->
+  <figure>
+    <img src="img/fig_parallax.png">
+    <figcaption>The shorter images have less distance to cover in the same amount of time as the longer images, so they move slower.</figcaption>
+  </figure>
 
   <p>Start coding: <a href="http://codepen.io/rachelnabors/pen/oKbhB" target="_blank">codepen.io/rachelnabors/pen/oKbhB</a></p>
-
-  <div class="slide">
-    <!--NOTE: The different background image lengths let us use one animation to move all the background images at different rates in the same interval of time.-->
-    <figure>
-      <img src="img/fig_parallax.png">
-      <figcaption>The shorter images have less distance to cover in the same amount of time as the longer images, so they move slower.</figcaption>
-    </figure>
-  </div>
 </section>
 
   
@@ -577,6 +599,7 @@ transition-duration: 1s, 3s;</pre>
     <li><a href="http://benthebodyguard.com/index.php" target="_blank">Ben the Bodyguard</a></li> 
     <li><a href="https://www.spotify.com/us/" target="_blank">Spotify</a></li>
     <li><a href="http://www.george-gina-lucy.com/" target="_blank">Technically this counts.</a></li> 
+    <li><a href="http://pitchfork.com/features/articles/9125-vampire-weekend/" target="_blank">Pitchfork's article on Vampire Weekend</a></li>
   </ul>
   <div class="slide">
     <h3>Resources</h3>
@@ -598,7 +621,8 @@ transition-duration: 1s, 3s;</pre>
   <h2>CSS Animations</h2>
   <h3>Questions?</h3>
   <p>If you don't have questions, I'm not dazzling you enough. PICK UP THE DAZZLEMENT, RACHEL.</p>
-  <p>TODO: Pic of unicorn, dazzling</p>
+  <img src="img/fig_dazzler.jpg" alt="Dazzler, a Marvel superheroine, in shining unitard and rollerskates." />
+  <!--TODO MOAR DAZZLEMENT-->
 </section>
 
 
@@ -644,13 +668,35 @@ transition-duration: 1s, 3s;</pre>
 
   <pre class="codepen" data-height="300" data-type="result" data-href="gcump" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/gcump">Check out this Pen!</a></pre>
 
-  <ul>
-    <li class="slide">Firefox, Chrome, Android, and Opera support ogg/vorbis. IE, Safari, Chrome, Android, and iOS support mp3.</li>
-    <li class="slide">The <code>type</code> property lets the browser know whether or not to download the file. <strong>Performant!</strong></li>
-  </ul>
 </section>
 
-<!--TODO: Hands on HTML5 audio?-->
+<section class="slide">
+  <h2>HTML5 Audio</h2>
+  <h3>Attributes of an audio tag</h3>
+  <ul>
+    <li class="slide"><code>autoplay</code> will automatically play the file, but it's disabled in some browsers like IE10 RT and iOS Safari</li>
+    <li class="slide"><code>loop</code> sets the track to repeat over and over again.</li>
+    <li class="slide"><code>preload</code> can be set to <code>auto</code>, <code>metadata</code> or <code>none</code>. Defaults to <code>auto</code></li>
+  </ul>
+
+<div class="slide">
+  <h3>Sources of an audio tag</h3>
+  <ul>
+    <li class="slide"><code>src</code> or <code>&lt;source&gt;</code></li>
+    <li class="slide">Firefox, Chrome, Android, and Opera support ogg/vorbis. IE, Safari, Chrome, Android, and iOS support mp3.</li>
+    <li class="slide">The <code>type</code> property lets the browser know whether or not to download the file. <strong>Performant!</strong> But you can leave it out, and the browser will try to download and play all sources till one works.</li>
+  </ul>
+</div>
+</section>
+
+
+<section class="slide">
+  <h2>HTML5 Audio</h2>
+  <h3>Exercise: Making an Audio Element</h3>
+  <p>Now I'd like you to create a looping HTML5 audio element.</p>
+  <p>Start coding! <a href="http://codepen.io/rachelnabors/pen/lydnj">codepen.io/rachelnabors/pen/lydnj</a></p>
+
+</section>
 
 <section class="slide">
   <h2>HTML5 Audio</h2>
@@ -664,22 +710,30 @@ transition-duration: 1s, 3s;</pre>
 
 <section class="slide">
   <div class="vcenter">
-    <h1>Play State with JavaScript</h1>
-    <h2>Part 2</h2>
+    <h1>Focus on&hellip;</h1>
+    <h2>Play State II: Playing</h2>
   </div>
 </section>
 
 <section class="slide">
-  <h2>Play State with JavaScript II</h2>
+  <h2>Play State II: Playing</h2>
   <h3>Sensing Audio Readiness</h3>
-
   <p>HTML5 audio's API is pretty meh when it comes to playback and manipulation, but it <em>does</em> have some sweet events.</p>
   <p class="slide"><code>canplaythrough</code> let's us know when the media should be able to play from start to finish without pause at the current download rate.</p>
-  <div class="slide">
-    <p>You can nest this inside our <code>window.load()</code> function to wait until both the window has been painted and the music is ready to play:</p>
-<pre>song.addEventListener("canplaythrough", function () {}, false);</pre>
-  </div>
-  <!--TODO Add exercise-->
+  <p class="slide">You can hide everything behind a loading screen while waiting.</p>
+  <p class="slide">Then you can kick off your <code>.playing</code> state automatically or after a user interaction (preferably the latter)!</p>
+</section>
+
+<section class="slide">
+  <h2>Play State Part II</h2>
+  <h3>Exercise: Return of the Loading Screen</h3>
+
+  <pre class="codepen" data-height="300" data-type="result" data-href="f1ff6379ac1edf250dcd6b0f84e973ab" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/HyCmt">Check out this Pen!</a></pre>
+
+  <p>Nest this inside our <code>window.load()</code> function to wait until both the window has been painted and the music is ready to play:</p>
+  <pre>song.addEventListener("canplaythrough", function () {}, false);</pre>
+
+  <p>Start coding: <a href="http://codepen.io/rachelnabors/pen/HyCmt" target="_blank">codepen.io/rachelnabors/pen/HyCmt</a>
 </section>
 
 <section class="slide">
@@ -717,11 +771,7 @@ transition-duration: 1s, 3s;</pre>
   <h2>Web Audio API</h2>
   <h3>What is it?</h3>
   <blockquote>The Web Audio API is a high-level JavaScript API for processing and synthesizing audio in web applications. <cite>Boris Smus</cite></blockquote>
-
-  <p class="slide">Pencils down. There will be no exercises in this section because of XMLHttpRequest :( </p>
-
-  <p class="slide">But there will still be cool animations!</p>
-
+  <p class="slide">Pencils down. This is mostly theory. No exercises. That's for another workshop.</p>
 </section>
 
 <section class="slide">
@@ -735,7 +785,6 @@ transition-duration: 1s, 3s;</pre>
 
 </section>
 
-
 <section class="slide">
   <h2>Web Audio API</h2>
   <h3>The AudioContext</h3>
@@ -744,18 +793,8 @@ transition-duration: 1s, 3s;</pre>
 
   <p>This is how you'd start one:</p>
 <pre>
-var context;
-window.addEventListener('load', init, false);
-function init() {
-  try {
-    // Fix up for prefixing
-    window.AudioContext = window.AudioContext||window.webkitAudioContext;
-    context = new AudioContext();
-  }
-  catch(e) {
-    alert('Web Audio API is not supported in this browser');
-  }
-}
+context = new AudioContext();
+// be sure to do your prefix sniffing
 </pre>
 
 </section>
@@ -764,42 +803,17 @@ function init() {
   <h2>Web Audio API</h2>
   <h3>Inputs and Audio Buffers</h3>
 
-  <p>To manipulate a sound file with the web audio API, we load it into an <code>ArrayBuffer</code>.</p>
-<pre>
-var songBuffer = null;
+  <p>Sound can be gotten in two ways:</p>
+  <ol>
+    <li>As a buffer loaded via XMLHttpRequest</li>
+    <li>Or as an Audio Source Node from an <code>audio</code> element.</li>
+  </ol>
 
-// Prefixing
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
-var context = new AudioContext();
+  <p class="slide">With buffers, because of <code>XMLHttpRequest</code>, the audio file needs to be from the same domain as the JS that calls it.</p>
 
-function loadSong(url) {
-  var request = new XMLHttpRequest();
-  var url = "http://samedomain.com/song.mp3";
-  request.open('GET', url, true);
-  request.responseType = 'arraybuffer';
-
-  // Decode asynchronously
-  request.onload = function() {
-    context.decodeAudioData(request.response, function(buffer) {
-      songBuffer = buffer;
-    }, onError);
-  }
-  request.send();
-}
-</pre>
-
-</section>
-
-<section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>Audio Buffer Tidbits</h3>
-
-  <p class="slide">The <code>decodeAudioData()</code> method doesn't block nor do you need to invoke it immediately.</p>
+  <p class="slide">With Audio Source Nodes from <code>audio</code>, you'll have access to <code>canplaythrough</code>.</p>
 
   <p class="slide">Beware of file types! Same limitations as HTML5 audio.</p>
-  
-  <p class="slide">Because of <code>XMLHttpRequest</code>, the audio file needs to be from the same domain as the JS that calls it. <strong>No hotlinking!</strong></p>
-
   <p class="slide">You can have multiple <code>AudioBuffers</code> within the same <code>AudioContext</code>.</p>
 
 </section>
@@ -808,7 +822,7 @@ function loadSong(url) {
   <h2>Web Audio API</h2>
   <h3>Doing Stuff with AudioNodes</h3>
 
-  <p>When you want to manipulate <code>AudioBuffers</code> before outputting them, you use <code>AudioNodes</code>.</p>
+  <p>When you want to manipulate <code>AudioBuffers</code> and <code>AudioSourceNodes</code> before outputting them, you pipe them through <code>AudioNodes</code>.</p>
 
   <div class="slide">
     <p>You connect an input to a gain node to the output like so:</p>
@@ -830,8 +844,6 @@ gainNode.connect(context.destination);
   <h2>Web Audio API</h2>
   <h3>Outputting to Speakers</h3>
 <pre>
-// Fix up prefixing
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var context = new AudioContext();
 
 function playSound(buffer) {
@@ -853,11 +865,58 @@ function playSound(buffer) {
 <section class="slide">
   <h2>Web Audio API</h2>
   <h3>Manipulating a loop</h3>
-  <p>Check out <a href="http://www.rachelnabors.com/animation/nyantuna/">NyanTuna!!</a></p>
+  <p>Check out <a href="http://rachelnabors.com/animation/nyantuna/">NyanTuna!!</a></p>
 
   <p class="slide">Now check out the source at <a href="https://github.com/rachelnabors/nyantuna" target="_blank">github.com/rachelnabors/nyantuna</a></p>
 
 </section>
+
+<!-- 
+<section class="slide">
+  <div class="vcenter">
+    <h1>Focus on&hellip;</h1>
+    <h2>Play State III: Paused</h2>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Play State III: Paused</h2>
+  <h3>Pausing Music</h3>
+
+  <p>Bad user experience: A bajillion tabs open. <strong>One</strong> of them is playing music.</p>
+
+  <p class="slide">It'd be better to pause the music when its tab is out of focus.</p>
+
+  <div class="slide">
+    <h3>Page Visibility API</h3>
+    <p>The Page visibility API lets us keep an eye on just that.</p>
+
+    <h3>Browser Support</h3>
+    <p>The Page Visibility API is supported in all modern browsers except for Safari, iOS Safari, Android Browser and Opera Mini.</p>
+    <p>Check out that support: <a href="http://caniuse.com/pagevisibility">caniuse.com/pagevisibility</a></p>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Play State III: Paused</h2>
+  <h3>Pausing Animation</h3>
+
+  <p>Most browsers pause animations when their tab is out of focus. Watch and listen:</p>
+  <!--Note go to other pages and things to offset the playback.-->
+
+
+<!--  <p class="slide">When the music and animation clocks are tightly coupled, you'll need to pause the animation <em>and</em> the music together to synch playback.</p>
+
+document.addEventListener('webkitvisibilitychange', onVisibilityChange);
+
+function onVisibilityChange() {
+  if (document.webkitHidden) {
+    source.stop(0);
+  } else {
+    source.start(0);
+  }
+}
+</section> -->
 
 <section class="slide">
   <h2>Web Audio API</h2>
@@ -868,6 +927,29 @@ function playSound(buffer) {
     <li><a href="http://creativejs.com/resources/web-audio-api-getting-started/" target="_blank">Web Audio API &ndash; Getting started</a> by Simon Madine has great info on <code>AudioNodes</code></li>
     <li>The Safari HTML5 Audio and Video Guide's <a href="http://developer.apple.com/library/safari/#documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/PlayingandSynthesizingSounds/PlayingandSynthesizingSounds.html" target="_blank">Playing Sounds with the Web Audio API</a></li>
   </ul>
+</section>
+
+<section class="slide">
+  <div class="vcenter">
+    <h1>Focus on&hellip;</h1>
+    <h2>Synching Music with Animation</h2>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Synching Music with Animation</h2>
+  <h3>Two Clocks</h3>
+  <p>When I made <a href="http://rachelnabors.com/css-amv-talk/animation" target="_blank">Candy Halo</a>, I thought I'd need way fancy JavaScript to keep everything in synch.</p>
+
+  <!--TODO: Move Candy Halo to its own github repo-->
+
+  <p class="slide">The solution was deceptively simple.</p>
+
+  <p class="slide">CSS, Web Audio, and JavaScript all have separate clocks.</p>
+
+  <p class="slide">You just need to kick them off at the same time.</p>
+
+  <p class="slide">Further reading: Chris Wilson's <a href="http://www.html5rocks.com/en/tutorials/audio/scheduling/" target="_blank">A Tale of Two Clocks</a></p>
 </section>
 
 <section class="slide">
@@ -893,7 +975,7 @@ function playSound(buffer) {
   <div class="slide">
     <h3>HTML5 Audio alone</h3>
     <ul>
-      <li class="slide"><strong>Simple</strong> <a href="http://www.rachelnabors.com/animation/candyHalo1/final/">Firing a one-off sound</a> has never been easier.</li>
+      <li class="slide"><strong>Simple</strong> <a href="http://rachelnabors.com/css-amv-talk/animation">Firing a one-off sound</a> has never been easier.</li>
       <li class="slide"><strong>Wider support</strong> All modern browsers support basic HTML5 audio API. Only webkit (and soon FireFox) support the web audio API.</li>
       <li class="slide"><strong>canplaythrough</strong> Easy to see when the audio is loaded and ready.</li>
     </ul>
@@ -927,29 +1009,47 @@ function playSound(buffer) {
 </section>
 
 <section class="slide">
-  <h1>Just the Beginning!</h1>
-  <h2>Resources</h2>
-  <!--TODO linkage-->
+  <h2>Just the Beginning!</h2>
+  <h3>Resources</h3>
   <ul>
+    <li>These slides: <a href="http://rachelnabors.com/animation-workshop">rachelnabors.com/animation-workshop</a></li>
     <li><a href="http://24ways.org/2012/flashless-animation/">My 24 Ways Article on Flashless Animation</a></li>
   </ul>
-  <h2>Keep in Touch</h2>
-  <!--TODO make contact stuffs-->
+  <h3>Keep in Touch</h3>
+  <p>I'd love to see what you create!</p>
   <ul>
-    <li><a href="http://24ways.org/2012/flashless-animation/">My 24 Ways Article on Flashless Animation</a></li>
+    <li><a href="https://twitter.com/rachelnabors">@rachelnabors</a></li>
+    <li><a href="http://rachelnabors.com">rachelnabors.com</a></li>
+    <li><a href="https://github.com/rachelnabors">github.com/rachelnabors</a></li>
+    <li><a href="http://codepen.io/rachelnabors">codepen.io/rachelnabors</a></li>
   </ul>
 </section>
 
 <section class="slide">
-  <!--TODO Add some leftovers myah-->
+  <div class="vcenter">
+    <h1>Leftovers</h1>
+    <h2>We still have time!</h2>
+  </div>
+</section>
+
+<section class="slide">
   <h2>Leftovers!</h2>
   <h3>Walking and running cycles!</h3>
+  TODO
+</section>
 
+<section class="slide">
+  <h2>Leftovers!</h2>
   <h3>Feature Sniffing</h3>
   <code>canPlayType</code> on audio to find which files to use.
+  TODO
+</section>
 
+<section class="slide">
+  <h2>Leftovers!</h2>
   <h3>Performance</h3>
   Paul Irish's FPS counter
+  TODO
 </section>
 
 <!-- Begin extension snippets. Add or remove as needed. -->
@@ -994,7 +1094,7 @@ function playSound(buffer) {
 <script src="extensions/pointer/deck.pointer.js"></script>
 <script src="extensions/syntaxhighlighter/deck.syntaxhighlighter.js"></script>
 <script src="extensions/iframes/deck.iframes.js"></script>
-<script type="text/javascript" src="extensions/presenterview/deck.presenterview.js"></script>
+<!-- <script type="text/javascript" src="extensions/presenterview/deck.presenterview.js"></script> -->
 <!-- Initialize the deck. You can put this in an external file if desired. -->
 <script>
   $(function() {
