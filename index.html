@@ -151,14 +151,14 @@
   <div class="slide">
     <h3>Transitioning Multiple Properties</h3>
     <p>Separate them with a comma.</p>
-<pre>transition-property: background, left;
+<pre class="language-css">transition-property: background, left;
 transition-duration: 1s, 3s;</pre>
   </div>
 
   <div class="slide">
     <h3>Transitioning Multiple Properties in Shorthand</h3>
     <p>Group statments with commas.</p>
-<pre>transition: background 1s, left 3s;</pre>
+<pre class="language-css">transition: background 1s, left 3s;</pre>
   </div>
 
   <p class="slide">
@@ -248,7 +248,7 @@ transition-duration: 1s, 3s;</pre>
   <div class="slide">
     <p>Hook into this event to swap the <code>.loading</code> class for <code>.loaded</code> or <code>.playing</code> like so:</p>
 
-    <pre><code data-language="javascript">$("body").removeClass("loading").addClass("loaded");</code></pre>
+    <pre class="language-javascript">$("body").removeClass("loading").addClass("loaded");</pre>
   </div>
   <p class="slide">Start Coding! <a href="http://codepen.io/rachelnabors/pen/tjuqg" target="_blank">codepen.io/rachelnabors/pen/tjuqg</a></p>
 </section>
@@ -358,7 +358,7 @@ transition-duration: 1s, 3s;</pre>
   <h2>CSS Animations</h2>
   <h3>Anatomy of an Animation</h3>
   <p>Animations share many similar properties and syntaxes with transitions... with a few big differences!</p>
-<pre>
+<pre class="language-css">
 .animated-thing {
   animation: <em>black-to-white 1s linear 1</em>;
 }
@@ -375,7 +375,7 @@ transition-duration: 1s, 3s;</pre>
   <h2>CSS Animations</h2>
   <h3>Anatomy of the <code>animation</code> Property</h3>
   <p>Let's have a look under the hood!</p>
-<pre>
+<pre class="language-css">
 .animated-thing {
   animation: $name $duration $timing-function $animation-delay $iteration-count;
 }
@@ -396,7 +396,7 @@ transition-duration: 1s, 3s;</pre>
   <h2>CSS Animations</h2>
   <h3>Advanced Anatomy of the <code>animation</code> Property</h3>
   <p>That was pretty similar to <code>transition</code>, but <code>animation</code> has a few more very special properties:</p>
-<pre>
+<pre class="language-css">
 .animated-thing {
   animation: $name $duration $timing-function $animation-delay $iteration-count <em>$direction $fill-mode $play-state</em>;
 }
@@ -414,7 +414,7 @@ transition-duration: 1s, 3s;</pre>
   <h3>Anatomy of a <code>@keyframes</code> Block</h3>
   <p>Rather than targeting a single property like <code>transition-property</code> does, the <code>@keyframes</code> block can define a group of properties and their values.</p>
 
-<pre>
+<pre class="language-css">
 @keyframes black-to-white {
   0% { 
     background: #000; 
@@ -431,7 +431,7 @@ transition-duration: 1s, 3s;</pre>
 <section class="slide">
   <h2>CSS Animations</h2>
   <h3>Multiple steps inside a <code>@keyframes</code> Block</h3>
-<pre>
+<pre class="language-css">
 @keyframes black-red-white {
   0% { 
     background: #000; 
@@ -452,7 +452,7 @@ transition-duration: 1s, 3s;</pre>
 <section class="slide">
   <h2>CSS Animations</h2>
   <h3>Multiple animations on a single rule</h3>
-<pre>
+<pre class="language-css">
 .animated-thing {
   animation: 
     black-to-white 1s linear 1,
@@ -731,7 +731,7 @@ transition-duration: 1s, 3s;</pre>
   <pre class="codepen" data-height="300" data-type="result" data-href="f1ff6379ac1edf250dcd6b0f84e973ab" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/HyCmt">Check out this Pen!</a></pre>
 
   <p>Nest this inside our <code>window.load()</code> function to wait until both the window has been painted and the music is ready to play:</p>
-  <pre>song.addEventListener("canplaythrough", function () {}, false);</pre>
+  <pre class="language-javascript">song.addEventListener("canplaythrough", function () {}, false);</pre>
 
   <p>Start coding: <a href="http://codepen.io/rachelnabors/pen/HyCmt" target="_blank">codepen.io/rachelnabors/pen/HyCmt</a>
 </section>
@@ -792,7 +792,7 @@ transition-duration: 1s, 3s;</pre>
   <p>All this takes place in a JavaScript object called the AudioContext.</p>
 
   <p>This is how you'd start one:</p>
-<pre>
+<pre class="language-javascript">
 context = new AudioContext();
 // be sure to do your prefix sniffing
 </pre>
@@ -826,7 +826,7 @@ context = new AudioContext();
 
   <div class="slide">
     <p>You connect an input to a gain node to the output like so:</p>
-<pre>
+<pre class="language-javascript">
 // Create a gain node.
 var gainNode = context.createGain();
 
@@ -843,7 +843,7 @@ gainNode.connect(context.destination);
 <section class="slide">
   <h2>Web Audio API</h2>
   <h3>Outputting to Speakers</h3>
-<pre>
+<pre class="language-javascript">
 var context = new AudioContext();
 
 function playSound(buffer) {
@@ -865,7 +865,7 @@ function playSound(buffer) {
 <section class="slide">
   <h2>Web Audio API</h2>
   <h3>Manipulating a loop</h3>
-  <p>Check out <a href="http://rachelnabors.com/animation/nyantuna/">NyanTuna!!</a></p>
+  <p>Check out <a href="http://rachelnabors.com/nyantuna/">NyanTuna!!</a></p>
 
   <p class="slide">Now check out the source at <a href="https://github.com/rachelnabors/nyantuna" target="_blank">github.com/rachelnabors/nyantuna</a></p>
 
@@ -922,6 +922,7 @@ function onVisibilityChange() {
   <h2>Web Audio API</h2>
   <h3>Resources</h3>
   <ul>
+    <li><a href="http://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library">Howler JS</a>, a small Web Audio API library that should take out the back-breaking labor for you</li>
     <li><a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/" target="_blank">Getting Started with Web Audio API</a> by Boris Smus</li>
     <li><strong>THE</strong> <a href="http://www.amazon.com/gp/product/1449332684/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1449332684&amp;linkCode=as2&amp;tag=mangapunk-20">Web Audio API</a><img src="http://www.assoc-amazon.com/e/ir?t=mangapunk-20&amp;l=as2&amp;=1&amp;a=1449332684" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display:inline !important" /> book <em>also</em> by Boris Smus</li>
     <li><a href="http://creativejs.com/resources/web-audio-api-getting-started/" target="_blank">Web Audio API &ndash; Getting started</a> by Simon Madine has great info on <code>AudioNodes</code></li>
@@ -941,11 +942,9 @@ function onVisibilityChange() {
   <h3>Two Clocks</h3>
   <p>When I made <a href="http://rachelnabors.com/css-amv-talk/animation" target="_blank">Candy Halo</a>, I thought I'd need way fancy JavaScript to keep everything in synch.</p>
 
-  <!--TODO: Move Candy Halo to its own github repo-->
-
   <p class="slide">The solution was deceptively simple.</p>
 
-  <p class="slide">CSS, Web Audio, and JavaScript all have separate clocks.</p>
+  <p class="slide">CSS and Web Audio/JavaScript have separate clocks.</p>
 
   <p class="slide">You just need to kick them off at the same time.</p>
 
@@ -991,6 +990,96 @@ function onVisibilityChange() {
 
 <section class="slide">
   <div class="vcenter">
+    <h1>Performance</h1>
+    <h2>With Chromium's Developer Tools</h2>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Performance</h2>
+  <h3>Frames Per Second</h3>
+  <p>To be visually pleasing on the screen, you need about 60 frames per second.</p>
+  <p class="slide">Frame Rate on the computer is <a href="http://en.wikipedia.org/wiki/Frame_rate" target="_blank">not the same as it is in the movie theatre</a>.</p>
+  <p class="slide">Balance framerate with performance, battery life, quality of animation.</p>
+  <div class="slide">
+    <p>Don't be this guy.</p>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/h4BOBkbjfvM" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <p class="slide">Let's check out some tools that will help you see what's happening where and why.</p>
+</section>
+
+<section class="slide">
+  <h2>Performance</h2>
+   <h3>Enable Chrome's <abbr title="frames per second">FPS</abbr> counter</h3>
+    <ol>
+      <li>Put <strong>about:flags</strong> into the address bar and go</li>
+      <li>enable the <strong>FPS counter</strong></li>
+      <li>Hit the “Relaunch now” button at bottom of page</li>
+    </ol>
+</section>
+
+<section class="slide">
+  <h2>Performance</h2>
+  <h3>Kicking things to the <abbr title="Graphics Processing Unit">GPU</abbr></h3>
+  <p>(AKA &ldquo;Hardware Acceleration&rdquo;)</p>
+  <p>To reduce CPU cycles, you can <em>coerce</em> the <abbr title="Graphics Processing Unit">GPU</abbr> into handling them.</p>
+  <div class="slide">
+    <p>The most common way is to use a fake-out 3D transform like so:</p>
+<pre class="language-css">
+.resource-sink {
+  transform: translateZ(0); //does nothing visually
+}
+</pre>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Performance</h2>
+  <h3>Why Hardware <del>Acceleration</del> Coercion is a bad idea</h3>
+  <ul>
+    <li class="slide">Different OSes and browsers optimize things differently</li>
+    <li class="slide">Adds code bulk</li>
+    <li class="slide">&ldquo;Magic fixes&rdquo; don't age well.</li>
+  </ul>
+  <p class="slide">My advice: Trust the browser.</p>
+  <p class="slide">But if it's mission critical, check this out: <a href="http://mobile.smashingmagazine.com/2012/06/21/play-with-hardware-accelerated-css/" target="_blank">Let’s Play With Hardware-Accelerated CSS</a></p>
+</section>
+
+<section class="slide">
+  <h2>Performance</h2>
+  <h3>Paint Rectangles</h3>
+  <p>To enable Chrome's paint rectangles:</p>
+  <ol>
+    <li>Open the web inspector</li>
+    <li>Click on the gear in the lower right corner</li>
+    <li>Check <strong>show paint rectangles</strong> under <strong>Rendering</strong></li>
+  </ol>
+  <p class="slide">Now have a second look at <a href="http://rachelnabors.com/nyantuna/" target="_blank">NyanTuna</a> with the web inspector open</p>
+  <p class="slide">Paint rectangles show what's being repainted. Fewer rectangles != always better.</p>
+</section>
+
+<section class="slide">
+  <h2>Performance</h2>
+  <h3>Investigating with Timeline</h3>
+  <p>Check out that <a href="http://cdpn.io/AvGhp">walk cycle</a> with the Dev Tools Timeline.</p>
+  <div class="slide">
+    <h3>Resources</h3>
+    <ul>
+      <li><a href="https://www.google.com/intl/en/chrome/browser/canary.html" target="_blank">Chrome Canary</a> has the best tools for analyzing animations and painting.</li>
+      <li><a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode" target="_blank">Profiling Long Paint Times with DevTools' Continuous Painting Mode</a></li>
+      <li><a href="http://www.html5rocks.com/en/tutorials/speed/layers/" target="_blank">Accelerated Rendering in Chrome: the Layer Model</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Performance</h2>
+  <h3>Questions</h3>
+
+</section>
+
+<section class="slide">
+  <div class="vcenter">
     <h1>Pop Quiz!</h1>
     <h2>Win fabulous prizes!</h2>
   </div>
@@ -1027,29 +1116,15 @@ function onVisibilityChange() {
 
 <section class="slide">
   <div class="vcenter">
-    <h1>Leftovers</h1>
-    <h2>We still have time!</h2>
+    <h1>Bonus Round!</h1>
+    <h2>Dang, you guys learn fast!</h2>
   </div>
 </section>
 
 <section class="slide">
-  <h2>Leftovers!</h2>
-  <h3>Walking and running cycles!</h3>
-  TODO
-</section>
-
-<section class="slide">
-  <h2>Leftovers!</h2>
-  <h3>Feature Sniffing</h3>
-  <code>canPlayType</code> on audio to find which files to use.
-  TODO
-</section>
-
-<section class="slide">
-  <h2>Leftovers!</h2>
-  <h3>Performance</h3>
-  Paul Irish's FPS counter
-  TODO
+  <h2>Bonus Round!</h2>
+  <h3>Transitioning from Walking to Running cycles</h3>
+  <pre class="codepen" data-height="300" data-type="result" data-href="zHeir" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/zHeir">Check out this Pen!</a></pre>
 </section>
 
 <!-- Begin extension snippets. Add or remove as needed. -->
