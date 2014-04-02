@@ -766,116 +766,6 @@ transition-duration: 1s, 3s;</pre>
   </div>
 </section>
 
-<section class="slide">
-  <div class="vcenter">
-    <h1>Sounds and Music</h1>
-    <h2>With the Web Audio API</h2>
-  </div>
-</section>
-
-<section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>What is it?</h3>
-  <blockquote>The Web Audio API is a high-level JavaScript API for processing and synthesizing audio in web applications. <cite>Boris Smus</cite></blockquote>
-  <p class="slide">Pencils down. This is mostly theory. No exercises. That's for another workshop.</p>
-</section>
-
-<section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>Anatomy of the Web Audio API</h3>
-
-  <figure>
-    <img src="img/fig_web-audio-api.png">
-    <figcaption>Basically, take audio input(s), do stuff with it, output it.</figcaption>
-  </figure>
-
-</section>
-
-<section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>The AudioContext</h3>
-
-  <p>All this takes place in a JavaScript object called the AudioContext.</p>
-
-  <p>This is how you'd start one:</p>
-<pre class="language-javascript">
-context = new AudioContext();
-// be sure to do your prefix sniffing
-</pre>
-
-</section>
-
-<section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>Inputs and Audio Buffers</h3>
-
-  <p>Sound can be gotten in two ways:</p>
-  <ol>
-    <li>As a buffer loaded via XMLHttpRequest</li>
-    <li>Or as an Audio Source Node from an <code>audio</code> element.</li>
-  </ol>
-
-  <p class="slide">With buffers, because of <code>XMLHttpRequest</code>, the audio file needs to be from the same domain as the JS that calls it.</p>
-
-  <p class="slide">With Audio Source Nodes from <code>audio</code>, you'll have access to <code>canplaythrough</code>.</p>
-
-  <p class="slide">Beware of file types! Same limitations as HTML5 audio.</p>
-  <p class="slide">You can have multiple <code>AudioBuffers</code> within the same <code>AudioContext</code>.</p>
-
-</section>
-
-<section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>Doing Stuff with AudioNodes</h3>
-
-  <p>When you want to manipulate <code>AudioBuffers</code> and <code>AudioSourceNodes</code> before outputting them, you pipe them through <code>AudioNodes</code>.</p>
-
-  <div class="slide">
-    <p>You connect an input to a gain node to the output like so:</p>
-<pre class="language-javascript">
-// Create a gain node.
-var gainNode = context.createGain();
-
-// Connect the source to the gain node.
-source.connect(gainNode);
-
-// Connect the gain node to the destination.
-gainNode.connect(context.destination);
-</pre>
-  </div>
-  <p class="slide"><a href="http://creativejs.com/resources/web-audio-api-getting-started/">Further exploration of nodes</a>, should time allow!</p>
-</section>
-
-<section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>Outputting to Speakers</h3>
-<pre class="language-javascript">
-var context = new AudioContext();
-
-function playSound(buffer) {
-  // create a sound source
-  var source = context.createBufferSource();
-
-  // tell the source which sound to play
-  source.buffer = buffer;
-
-  // connect the source to the context's destination
-  source.connect(context.destination);
-
-  // play!
-  source.start(0);
-}
-</pre>
-</section>
-
-<section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>Manipulating a loop</h3>
-  <p>Check out <a href="http://rachelnabors.com/nyantuna/">NyanTuna!!</a></p>
-
-  <p class="slide">Now check out the source at <a href="https://github.com/rachelnabors/nyantuna" target="_blank">github.com/rachelnabors/nyantuna</a></p>
-
-</section>
 
 <!--
 <section class="slide">
@@ -925,18 +815,6 @@ function onVisibilityChange() {
 </section> -->
 
 <section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>Resources</h3>
-  <ul>
-    <li><a href="http://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library">Howler JS</a>, a small Web Audio API library that should take out the back-breaking labor for you</li>
-    <li><a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/" target="_blank">Getting Started with Web Audio API</a> by Boris Smus</li>
-    <li><strong>THE</strong> <a href="http://www.amazon.com/gp/product/1449332684/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1449332684&amp;linkCode=as2&amp;tag=mangapunk-20">Web Audio API</a><img src="http://www.assoc-amazon.com/e/ir?t=mangapunk-20&amp;l=as2&amp;=1&amp;a=1449332684" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display:inline !important" /> book <em>also</em> by Boris Smus</li>
-    <li><a href="http://creativejs.com/resources/web-audio-api-getting-started/" target="_blank">Web Audio API &ndash; Getting started</a> by Simon Madine has great info on <code>AudioNodes</code></li>
-    <li>The Safari HTML5 Audio and Video Guide's <a href="http://developer.apple.com/library/safari/#documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/PlayingandSynthesizingSounds/PlayingandSynthesizingSounds.html" target="_blank">Playing Sounds with the Web Audio API</a></li>
-  </ul>
-</section>
-
-<section class="slide">
   <div class="vcenter">
     <h1>Focus on&hellip;</h1>
     <h2>Synching Music with Animation</h2>
@@ -955,43 +833,6 @@ function onVisibilityChange() {
   <p class="slide">You just need to kick them off at the same time.</p>
 
   <p class="slide">Further reading: Chris Wilson's <a href="http://www.html5rocks.com/en/tutorials/audio/scheduling/" target="_blank">A Tale of Two Clocks</a></p>
-</section>
-
-<section class="slide">
-  <div class="vcenter">
-    <h1>When to Use</h1>
-    <h2>HTML5 Audio vs. Web Audio API</h2>
-  </div>
-</section>
-
-<section class="slide">
-  <h2>HTML5 Audio vs. Web Audio API</h2>
-
-  <div class="slide">
-    <h3>Web Audio API + HTML5 Audio</h3>
-    <ul>
-      <li class="slide"><strong>Multiple sounds</strong> Some (mobile) browsers aren't too keen on playing multiple HTML5 audio sounds at the same time.</li>
-      <li class="slide"><strong>Manipulation</strong> Filter, distort, and manipulate.</li>
-      <li class="slide"><strong>Stereo</strong> Position sound in 3D.</li>
-      <li class="slide"><strong>Gapless</strong> No gaps in loops :)</li>
-    </ul>
-  </div>
-
-  <div class="slide">
-    <h3>HTML5 Audio alone</h3>
-    <ul>
-      <li class="slide"><strong>Simple</strong> <a href="http://rachelnabors.com/css-amv-talk/animation">Firing a one-off sound</a> has never been easier.</li>
-      <li class="slide"><strong>Wider support</strong> All modern browsers support basic HTML5 audio API. Only webkit (and soon FireFox) support the web audio API.</li>
-      <li class="slide"><strong>canplaythrough</strong> Easy to see when the audio is loaded and ready.</li>
-    </ul>
-  </div>
-
-</section>
-
-<section class="slide">
-  <h2>Web Audio API</h2>
-  <h3>Questions</h3>
-
 </section>
 
 <section class="slide">
